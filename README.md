@@ -1,38 +1,35 @@
-## Diagrama de classes
-
 '''mermaid
 classDiagram
-    class User {
-        +String name
-        +Account account
-        +List~Feature~ features
-        +Card card
-        +List~News~ news
+    class Cliente {
+        +String nomeCompleto
+        +String dataNascimento
+        +Endereco endereco
+        +List~ContaBancaria~ contasBancarias
     }
 
-    class Account {
-        +String number
-        +String agency
-        +double balance
+    class Endereco {
+        +String rua
+        +int numero
+        +String cidade
+        +String estado
+        +String cep
     }
 
-    class Feature {
-        +String icon
-        +String description
+    class ContaBancaria {
+        +String numeroConta
+        +String tipo
+        +double saldo
+        +List~Transacao~ transacoes
     }
 
-    class Card {
-        +String number
-        +double limit
+    class Transacao {
+        +String data
+        +String descricao
+        +double valor
+        +String tipoTransacao
     }
 
-    class News {
-        +String icon
-        +String description
-    }
-
-    User "1" *-- "1" Account
-    User "1" *-- "*" Feature
-    User "1" *-- "1" Card
-    User "1" *-- "*" News
+    Cliente "1" *-- "1" Endereco
+    Cliente "1" *-- "*" ContaBancaria
+    ContaBancaria "1" *-- "*" Transacao
     '''
