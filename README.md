@@ -1,35 +1,33 @@
 '''mermaid
 classDiagram
-    class Cliente {
-        +String nomeCompleto
-        +String dataNascimento
-        +Endereco endereco
-        +List~ContaBancaria~ contasBancarias
+    class Usuario {
+        +String name
     }
 
-    class Endereco {
-        +String rua
-        +int numero
-        +String cidade
-        +String estado
-        +String cep
+    class Conta {
+        +String number
+        +String agency
+        +Float balance
     }
 
-    class ContaBancaria {
-        +String numeroConta
-        +String tipo
-        +double saldo
-        +List~Transacao~ transacoes
+    class Funcionalidade {
+        +String icon
+        +String description
     }
 
-    class Transacao {
-        +String data
-        +String descricao
-        +double valor
-        +String tipoTransacao
+    class Cartao {
+        +String number
+        +Float limit
     }
 
-    Cliente "1" *-- "1" Endereco
-    Cliente "1" *-- "*" ContaBancaria
-    ContaBancaria "1" *-- "*" Transacao
+    class Noticia {
+        +String icon
+        +String description
+    }
+
+    Usuario "1" --> "1" Conta
+    Usuario "1" --> "1..*" Funcionalidade
+    Usuario "1" --> "1" Cartao
+    Usuario "1" --> "0..*" Noticia
+
     '''
